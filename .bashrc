@@ -128,6 +128,7 @@ export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 
 alias python=python3
+alias pip=pip3
 
 export PATH="$PATH:/home/aksh/Jarvis"
 
