@@ -36,10 +36,10 @@ set number "line numbering
 set relativenumber " Relative line numbering
 set ignorecase! " Ignore case in search
 set synmaxcol=200 " only syntax highlight first 200cols for performance reasons.
+set colorcolumn=80
+highlight ColorColumn ctermbg=235 guibg=#33313b
 
-
-" insert autocmd for indentations here
-
+nnoremap <silent> <C-s> :w <CR>
 
 " Use italics 
 let g:onedark_terminal_italics = 1
@@ -56,6 +56,10 @@ highlight iCursor guifg=white guibg=steelblue
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <leader>t :NERDTreeToggle<CR>
 
+" Deoplete/jedi configurations.
+"''''''''''''''''''''''''''''''
+let g:deoplete#enable_at_startup = 1
+
 " Status line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lightline = {
@@ -68,14 +72,6 @@ let g:lightline = {
       \   'gitbranch': 'gitbranch#name'
       \ },
       \ }
-
-" Tell Vim which characters to show for expanded TABs,
-" trailing whitespace, and end-of-lines. VERY useful!
-" (Sourced from http://nerditya.com/code/guide-to-neovim/)
-"if &listchars ==# 'eol:$'
-"  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-"endif
-"set list                " Show problematic characters.
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support

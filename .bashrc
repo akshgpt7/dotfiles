@@ -88,9 +88,11 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
+alias x='exit'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias nv='nvim'
 
 alias ..='cd ..'
 alias rm='rm -i'
@@ -134,3 +136,5 @@ export PATH="$PATH:/home/aksh/Jarvis"
 
 # For Sophos
 export PATH="/home/$USER/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
