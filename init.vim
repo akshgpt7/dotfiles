@@ -40,6 +40,7 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=235 guibg=#33313b
 
 nnoremap <silent> <C-s> :w <CR>
+:tnoremap <Esc> <C-\><C-n>
 
 " Use italics 
 let g:onedark_terminal_italics = 1
