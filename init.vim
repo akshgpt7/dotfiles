@@ -1,6 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'tpope/vim-sensible'  """"""
+Plug 'tpope/vim-sensible'
 Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'NovaDev94/lightline-onedark'
 Plug 'jiangmiao/auto-pairs'
@@ -10,11 +10,9 @@ Plug 'tpope/vim-unimpaired'
 Plug 'sbdchd/neoformat'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocompletion plugin
 Plug 'rakr/vim-one'
-Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot' " language support for many languages
 " Streamlined statusline.
 Plug 'itchyny/lightline.vim'
-Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'NovaDev94/lightline-onedark'
 Plug 'itchyny/vim-gitbranch'
 
@@ -24,8 +22,8 @@ call plug#end()
 
 
 " Colorscheme configuration
+colorscheme one
 set background=dark
-colorscheme onedark
 
 " basic configurations
 set shiftwidth=2
@@ -33,29 +31,27 @@ set softtabstop=2
 set tabstop=2
 autocmd Filetype python setlocal ts=4 sw=4 sts=0 expandtab
 set number "line numbering
-set relativenumber " Relative line numbering
+" set relativenumber " Relative line numbering
 set ignorecase! " Ignore case in search
 set synmaxcol=200 " only syntax highlight first 200cols for performance reasons.
 set colorcolumn=80
 highlight ColorColumn ctermbg=235 guibg=#33313b
+highlight LineNr guibg=#222831
 
+" Some keybindings
 nnoremap <silent> <C-s> :w <CR>
 :tnoremap <Esc> <C-\><C-n>
 nnoremap <Down> <c-e>
 nnoremap <Up> <c-y>
 nnoremap <Left> <c-u>
 nnoremap <Right> <c-d>
+nnoremap <C-t> :tabnew <CR>
+nnoremap <leader>w :tabclose <CR>
 
 " Use italics 
 let g:onedark_terminal_italics = 1
 let g:one_allow_italics = 1
-
 highlight Comment ctermfg=59 guifg=#5C6370 gui=italic
-
-" Cursor configuration
-highlight Cursor guifg=white guibg=black
-" Insert mode is iCursor
-highlight iCursor guifg=white guibg=steelblue
 
 " NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -75,6 +71,9 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ 'component': {
+      \   'lineinfo': "%{line('.') . ' /' . line('$') . ' :' . col('.')}",
       \ },
       \ }
 
