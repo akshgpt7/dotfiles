@@ -4,6 +4,7 @@ Plug 'tpope/vim-sensible'
 Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'NovaDev94/lightline-onedark'
 Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim' """"""
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-unimpaired'
@@ -29,11 +30,12 @@ set background=dark
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
-autocmd Filetype python setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
 set number "line numbering
 " set relativenumber " Relative line numbering
 set ignorecase! " Ignore case in search
 set synmaxcol=200 " only syntax highlight first 200cols for performance reasons.
+set nowrap
 set colorcolumn=80
 highlight ColorColumn ctermbg=235 guibg=#33313b
 highlight LineNr guibg=#222831
