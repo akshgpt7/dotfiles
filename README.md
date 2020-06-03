@@ -8,7 +8,7 @@ Includes:
 To be copied in `~/.config/nvim/init.vim`
 <br>
 Preview:
-![Screenshot from 2020-05-19 00-14-48](https://user-images.githubusercontent.com/20405311/82248579-02bee400-9966-11ea-8258-e675b5d2caf8.png)
+![screenshot of neovim](https://user-images.githubusercontent.com/20405311/82496525-887b9480-9b0a-11ea-9818-d2cb63564791.png)
 <br>
 
 ## .bashrc
