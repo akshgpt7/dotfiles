@@ -1,6 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'tpope/vim-sensible'
+Plug 'alvan/vim-closetag'
 Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'NovaDev94/lightline-onedark'
 Plug 'jiangmiao/auto-pairs'
@@ -49,6 +50,7 @@ nnoremap <Left> <c-u>
 nnoremap <Right> <c-d>
 nnoremap <C-t> :tabnew <CR>
 nnoremap <leader>w :tabclose <CR>
+cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))
 
 " Use italics 
 let g:onedark_terminal_italics = 1
