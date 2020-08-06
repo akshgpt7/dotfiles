@@ -27,11 +27,19 @@ call plug#end()
 colorscheme one
 set background=dark
 
+
 " basic configurations
+
+set autoindent
+set smartindent
+set smarttab
+set shiftround
+set expandtab
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
-autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
+autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab autoindent smartindent
+
 set number "line numbering
 " set relativenumber " Relative line numbering
 set ignorecase! " Ignore case in search
@@ -41,7 +49,9 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=235 guibg=#33313b
 highlight LineNr guibg=#222831
 
+
 " Some keybindings
+let mapleader = "\<Space>"
 nnoremap <silent> <C-s> :w <CR>
 :tnoremap <Esc> <C-\><C-n>
 nnoremap <Down> <c-e>
@@ -51,19 +61,40 @@ nnoremap <Right> <c-d>
 nnoremap <C-t> :tabnew <CR>
 nnoremap <leader>w :tabclose <CR>
 cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))
+cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
+set pastetoggle=<<leader>p>
+
+
+" Auto paste mode
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+paste
+
 
 " Use italics 
 let g:onedark_terminal_italics = 1
 let g:one_allow_italics = 1
 highlight Comment ctermfg=59 guifg=#5C6370 gui=italic
 
+
 " NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <leader>t :NERDTreeToggle<CR>
 
+
 " Deoplete/jedi configurations.
 "''''''''''''''''''''''''''''''
 let g:deoplete#enable_at_startup = 1
+let g:python3_host_prog ='/usr/bin/python3'
+
 
 " Status line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
