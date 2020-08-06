@@ -89,6 +89,7 @@ fi
 
 # some more ls aliases
 alias x='exit'
+alias c='clear'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -125,6 +126,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export PATH="/home/$USER/.deno/bin:$PATH"
+
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
