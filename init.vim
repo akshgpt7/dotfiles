@@ -76,7 +76,6 @@ function! XTermPasteBegin()
   set paste
   return ""
 endfunction
-paste
 
 
 " Use italics 
