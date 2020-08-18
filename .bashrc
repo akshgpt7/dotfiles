@@ -127,6 +127,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+
 export PATH="/home/$USER/.deno/bin:$PATH"
 
 # Install Ruby Gems to ~/gems
@@ -135,6 +137,7 @@ export PATH="$HOME/gems/bin:$PATH"
 
 alias python=python3
 alias pip=pip3
+export NVIM_PYTHON_LOG_FILE=/tmp/log
 
 export PATH="$PATH:/home/aksh/Jarvis"
 

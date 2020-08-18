@@ -1,22 +1,21 @@
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'tpope/vim-sensible'
-Plug 'alvan/vim-closetag'
-Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'NovaDev94/lightline-onedark'
+Plug 'tpope/vim-sensible' " Some common configurations
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
-Plug 'editorconfig/editorconfig-vim' """"""
-Plug 'mhinz/vim-startify'
-Plug 'tpope/vim-unimpaired'
 Plug 'sbdchd/neoformat'
+Plug 'alvan/vim-closetag' " Close html tags
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocompletion plugin
-Plug 'rakr/vim-one'
+Plug 'Shougo/neco-syntax' " Keywords autocompletion for various languages
+Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' } " (somewhat) smart autocompletion
 Plug 'sheerun/vim-polyglot' " language support for many languages
-" Streamlined statusline.
-Plug 'itchyny/lightline.vim'
-Plug 'NovaDev94/lightline-onedark'
+Plug 'sainnhe/sonokai'
+Plug 'itchyny/lightline.vim' " Status line
 Plug 'itchyny/vim-gitbranch'
+Plug 'ryanoasis/vim-devicons'
 
 set laststatus=2
 
@@ -24,8 +23,10 @@ call plug#end()
 
 
 " Colorscheme configuration
-colorscheme one
-set background=dark
+let g:sonokai_style = 'andromeda'
+colorscheme sonokai
+syntax on
+highlight LineNr guibg=#25292e
 
 
 " basic configurations
@@ -41,17 +42,14 @@ set tabstop=2
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab autoindent smartindent
 
 set number "line numbering
-" set relativenumber " Relative line numbering
+set relativenumber " Relative line numbering
 set ignorecase! " Ignore case in search
 set synmaxcol=200 " only syntax highlight first 200cols for performance reasons.
 set nowrap
 set colorcolumn=80
-highlight ColorColumn ctermbg=235 guibg=#33313b
-highlight LineNr guibg=#222831
 
 
 " Some keybindings
-let mapleader = "\<Space>"
 nnoremap <silent> <C-s> :w <CR>
 :tnoremap <Esc> <C-\><C-n>
 nnoremap <Down> <c-e>
@@ -60,9 +58,10 @@ nnoremap <Left> <c-u>
 nnoremap <Right> <c-d>
 nnoremap <C-t> :tabnew <CR>
 nnoremap <leader>w :tabclose <CR>
+nnoremap <leader>f :FZF <CR>
+nnoremap <leader>g :Rg <CR>
 cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
-set pastetoggle=<<leader>p>
 
 
 " Auto paste mode
@@ -78,18 +77,22 @@ function! XTermPasteBegin()
 endfunction
 
 
-" Use italics 
-let g:onedark_terminal_italics = 1
-let g:one_allow_italics = 1
-highlight Comment ctermfg=59 guifg=#5C6370 gui=italic
-
-
-" NERDTree
+" CHADTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <leader>t :NERDTreeToggle<CR>
+noremap <leader>t :CHADopen<CR>
+
+" Blue:  #00bcd4 #5fdde5
+let g:chadtree_colours = {
+      \ '8_bit': {
+      \ 'Blue': {'hl24': '#00bcd4'},
+      \ 'Green': {'hl24': '#bef992'},
+      \ 'Magenta': {'hl24': '#f638dc'},
+      \ 'Cyan': {'hl24': '#21e6c1'},
+      \ }
+      \ }
 
 
-" Deoplete/jedi configurations.
+" Deoplete configurations.
 "''''''''''''''''''''''''''''''
 let g:deoplete#enable_at_startup = 1
 let g:python3_host_prog ='/usr/bin/python3'
@@ -126,3 +129,12 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
+
+
+" Some nice colorchemes for playing around
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug  'danilo-augusto/vim-afterglow' 
+" Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+" Plug 'ayu-theme/ayu-vim'
+" Plug 'kyoz/purify', { 'rtp': 'vim' }
+" Plug 'rakr/vim-one'
