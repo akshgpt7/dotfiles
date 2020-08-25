@@ -101,7 +101,7 @@ alias rm='rm -i'
 # Some git aliases
 alias gs='git status'
 alias gadd='git add'
-alias gc='git commit -m'
+alias gc='git commit -S -m'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -145,3 +145,5 @@ export PATH="$PATH:/home/aksh/Jarvis"
 export PATH="/home/$USER/bin:$PATH"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export GPG_TTY=$(tty)
