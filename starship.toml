@@ -1,0 +1,19 @@
+add_newline = false
+
+
+format = """
+$username\
+$directory\
+$git_branch\
+$character
+"""
+
+[username]
+style_user = "green bold"
+style_root = "green bold"
+format = "[$user]($style)@ "
+disabled = false
+show_always = true
+
+[directory]
+style = "#fa7d09 bold"
