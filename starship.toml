@@ -2,6 +2,7 @@ add_newline = false
 
 
 format = """
+$env_var\
 $username\
 $directory\
 $git_branch\
@@ -17,3 +18,8 @@ show_always = true
 
 [directory]
 style = "#fa7d09 bold"
+
+[env_var]
+variable = "VIRTUAL_ENV"
+style = "bright-white dimmed"
+format = "\\(env\\) "
