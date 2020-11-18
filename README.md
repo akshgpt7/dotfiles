@@ -7,9 +7,15 @@ Includes:
 ## Neovim config
 To be copied in `~/.config/nvim/init.vim`
 <br>
-Preview:
-![screenshot of neovim](https://user-images.githubusercontent.com/20405311/82496525-887b9480-9b0a-11ea-9818-d2cb63564791.png)
-<br>
+
+## fish
+Entire directory for fish config.
+
+## Starship prompt
+`starship.toml`
 
 ## .bashrc
 To be copied in `~/.bashrc` 
+(which I don't use anymore)
+
+
