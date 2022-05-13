@@ -13,7 +13,6 @@ abbr -a gc 'git commit -m'
 abbr -a gb 'git branch'
 
 abbr -a python 'python3'
-abbr -a pip 'pip3'
 
 starship init fish | source
 
